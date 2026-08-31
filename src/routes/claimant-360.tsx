@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/claimant-360")({
   validateSearch: (s: Record<string, unknown>) => ({
-    claimant: typeof s.claimant === "string" ? s.claimant : "Anjali Verma",
+    claimant: typeof s['claimant'] === "string" ? (s['claimant'] as string) : "Anjali Verma",
   }),
   head: () => ({
     meta: [
@@ -33,7 +33,7 @@ function Claimant360() {
   const { claimant } = Route.useSearch();
   const names = Array.from(new Set(ALL_CLAIMS.map((c) => c.claimant)));
   const calls = ALL_CLAIMS.filter((c) => c.claimant === claimant);
-  const profile = calls[0] ?? ALL_CLAIMS[0];
+  const profile = calls[0] ?? ALL_CLAIMS[0]!;
   const history = EXTRA_HISTORY[claimant] ?? [];
 
   const tags: string[] = [];

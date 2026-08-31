@@ -9,7 +9,7 @@ import { claimById, formatINR } from "@/lib/mock-data";
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/calls/$claimId")({
-  validateSearch: (s: Record<string, unknown>) => ({ play: Number(s.play) === 1 ? 1 : 0 }),
+  validateSearch: (s: Record<string, unknown>) => ({ play: Number(s['play']) === 1 ? 1 : 0 }),
   head: ({ params }) => {
     const c = claimById(params.claimId);
     const title = c ? `${c.id} — ${c.claimant} | Call Detail` : "Call Detail | ArogyaLink TPA";
@@ -72,7 +72,7 @@ function CallDetail() {
           setPhases((prev) =>
             prev.map((p, pi) => ({
               ...p,
-              status: pi < phaseOfLine[i] ? "done" : pi === phaseOfLine[i] ? "active" : "idle",
+              status: pi < phaseOfLine[i]! ? "done" : pi === phaseOfLine[i] ? "active" : "idle",
             })),
           );
         }, delay),

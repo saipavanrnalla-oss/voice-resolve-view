@@ -106,7 +106,7 @@ function layout(phases: CallPhase[]): { nodes: Node[]; edges: Edge[] } {
   g.setGraph({ rankdir: "LR", nodesep: 40, ranksep: 70 });
   g.setDefaultEdgeLabel(() => ({}));
   phases.forEach((p) => g.setNode(p.id, { width: 256, height: 150 }));
-  phases.slice(1).forEach((p, i) => g.setEdge(phases[i].id, p.id));
+  phases.slice(1).forEach((p, i) => g.setEdge(phases[i]!.id, p.id));
   dagre.layout(g);
 
   const nodes: Node[] = phases.map((p) => {
@@ -119,8 +119,8 @@ function layout(phases: CallPhase[]): { nodes: Node[]; edges: Edge[] } {
     };
   });
   const edges: Edge[] = phases.slice(1).map((p, i) => ({
-    id: `${phases[i].id}-${p.id}`,
-    source: phases[i].id,
+    id: `${phases[i]!.id}-${p.id}`,
+    source: phases[i]!.id,
     target: p.id,
     animated: p.status === "active",
     style: { stroke: p.status === "idle" ? "var(--border)" : "var(--primary)" },

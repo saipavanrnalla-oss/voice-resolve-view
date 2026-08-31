@@ -47,7 +47,7 @@ function NextStepAnalytics() {
             <li key={f.stage} className="flex items-center justify-between rounded-lg bg-muted px-3 py-2 text-sm">
               <span className="text-foreground">{f.stage}</span>
               <span className="text-muted-foreground">
-                {f.value.toLocaleString("en-IN")} · {((f.value / FUNNEL[0].value) * 100).toFixed(1)}%
+                {f.value.toLocaleString("en-IN")} · {((f.value / FUNNEL[0]!.value) * 100).toFixed(1)}%
               </span>
             </li>
           ))}

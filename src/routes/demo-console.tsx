@@ -18,9 +18,9 @@ export const Route = createFileRoute("/demo-console")({
 
 function DemoConsole() {
   const navigate = useNavigate();
-  const [insurer, setInsurer] = useState<string>(INSURERS[0]);
-  const [category, setCategory] = useState<string>(REJECTION_CATEGORIES[5]);
-  const claimId = FLAGSHIP[category];
+  const [insurer, setInsurer] = useState<string>(INSURERS[0] as string);
+  const [category, setCategory] = useState<string>(REJECTION_CATEGORIES[5] as string);
+  const claimId = FLAGSHIP[category] as string;
   const claim = claimById(claimId);
 
   return (

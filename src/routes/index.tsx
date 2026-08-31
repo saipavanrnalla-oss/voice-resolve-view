@@ -177,10 +177,10 @@ function ExecutiveDashboard() {
                 <span className="text-foreground">{s.stage}</span>
                 <span className="text-muted-foreground">
                   {s.value.toLocaleString("en-IN")} ·{" "}
-                  {((s.value / DELIVERY_FUNNEL[0].value) * 100).toFixed(1)}%
+                  {((s.value / DELIVERY_FUNNEL[0]!.value) * 100).toFixed(1)}%
                   {i > 0 && (
                     <span className="ml-2 text-danger">
-                      −{(DELIVERY_FUNNEL[i - 1].value - s.value).toLocaleString("en-IN")}
+                      −{(DELIVERY_FUNNEL[i - 1]!.value - s.value).toLocaleString("en-IN")}
                     </span>
                   )}
                 </span>
@@ -263,7 +263,7 @@ function ExecutiveDashboard() {
                 {topCalls.map((c) => (
                   <tr key={c.id} className="border-b border-border/60 last:border-0">
                     <td className="py-2">
-                      <Link to="/calls/$claimId" params={{ claimId: c.id }} className="font-medium text-primary">
+                      <Link to="/calls/$claimId" params={{ claimId: c.id }} search={{ play: 0 }} className="font-medium text-primary">
                         {c.id}
                       </Link>
                     </td>
