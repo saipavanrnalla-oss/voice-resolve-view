@@ -14,6 +14,7 @@ import { Route as DemoConsoleRouteImport } from './routes/demo-console'
 import { Route as NextStepAnalyticsRouteImport } from './routes/next-step-analytics'
 import { Route as RejectionAnalyticsRouteImport } from './routes/rejection-analytics'
 import { Route as SentimentAnalyticsRouteImport } from './routes/sentiment-analytics'
+import { Route as WorkflowObservabilityRouteImport } from './routes/workflow-observability'
 import { Route as CallsIndexRouteImport } from './routes/calls/index'
 import { Route as CallsClaimIdRouteImport } from './routes/calls/$claimId'
 
@@ -42,6 +43,11 @@ const SentimentAnalyticsRoute = SentimentAnalyticsRouteImport.update({
   path: '/sentiment-analytics',
   getParentRoute: () => rootRouteImport,
 } as any)
+const WorkflowObservabilityRoute = WorkflowObservabilityRouteImport.update({
+  id: '/workflow-observability',
+  path: '/workflow-observability',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CallsIndexRoute = CallsIndexRouteImport.update({
   id: '/calls/',
   path: '/calls/',
@@ -59,6 +65,7 @@ export interface FileRoutesByFullPath {
   '/next-step-analytics': typeof NextStepAnalyticsRoute
   '/rejection-analytics': typeof RejectionAnalyticsRoute
   '/sentiment-analytics': typeof SentimentAnalyticsRoute
+  '/workflow-observability': typeof WorkflowObservabilityRoute
   '/calls/$claimId': typeof CallsClaimIdRoute
   '/calls/': typeof CallsIndexRoute
 }
@@ -68,6 +75,7 @@ export interface FileRoutesByTo {
   '/next-step-analytics': typeof NextStepAnalyticsRoute
   '/rejection-analytics': typeof RejectionAnalyticsRoute
   '/sentiment-analytics': typeof SentimentAnalyticsRoute
+  '/workflow-observability': typeof WorkflowObservabilityRoute
   '/calls/$claimId': typeof CallsClaimIdRoute
   '/calls': typeof CallsIndexRoute
 }
@@ -78,6 +86,7 @@ export interface FileRoutesById {
   '/next-step-analytics': typeof NextStepAnalyticsRoute
   '/rejection-analytics': typeof RejectionAnalyticsRoute
   '/sentiment-analytics': typeof SentimentAnalyticsRoute
+  '/workflow-observability': typeof WorkflowObservabilityRoute
   '/calls/$claimId': typeof CallsClaimIdRoute
   '/calls/': typeof CallsIndexRoute
 }
@@ -89,6 +98,7 @@ export interface FileRouteTypes {
     | '/next-step-analytics'
     | '/rejection-analytics'
     | '/sentiment-analytics'
+    | '/workflow-observability'
     | '/calls/$claimId'
     | '/calls/'
   fileRoutesByTo: FileRoutesByTo
@@ -98,6 +108,7 @@ export interface FileRouteTypes {
     | '/next-step-analytics'
     | '/rejection-analytics'
     | '/sentiment-analytics'
+    | '/workflow-observability'
     | '/calls/$claimId'
     | '/calls'
   id:
@@ -107,6 +118,7 @@ export interface FileRouteTypes {
     | '/next-step-analytics'
     | '/rejection-analytics'
     | '/sentiment-analytics'
+    | '/workflow-observability'
     | '/calls/$claimId'
     | '/calls/'
   fileRoutesById: FileRoutesById
@@ -117,6 +129,7 @@ export interface RootRouteChildren {
   NextStepAnalyticsRoute: typeof NextStepAnalyticsRoute
   RejectionAnalyticsRoute: typeof RejectionAnalyticsRoute
   SentimentAnalyticsRoute: typeof SentimentAnalyticsRoute
+  WorkflowObservabilityRoute: typeof WorkflowObservabilityRoute
   CallsClaimIdRoute: typeof CallsClaimIdRoute
   CallsIndexRoute: typeof CallsIndexRoute
 }
@@ -158,6 +171,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SentimentAnalyticsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/workflow-observability': {
+      id: '/workflow-observability'
+      path: '/workflow-observability'
+      fullPath: '/workflow-observability'
+      preLoaderRoute: typeof WorkflowObservabilityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/calls/': {
       id: '/calls/'
       path: '/calls'
@@ -181,6 +201,7 @@ const rootRouteChildren: RootRouteChildren = {
   NextStepAnalyticsRoute: NextStepAnalyticsRoute,
   RejectionAnalyticsRoute: RejectionAnalyticsRoute,
   SentimentAnalyticsRoute: SentimentAnalyticsRoute,
+  WorkflowObservabilityRoute: WorkflowObservabilityRoute,
   CallsClaimIdRoute: CallsClaimIdRoute,
   CallsIndexRoute: CallsIndexRoute,
 }
