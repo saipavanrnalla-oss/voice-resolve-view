@@ -17,7 +17,6 @@ import {
 import { cn } from "@/lib/utils";
 
 const SECTIONS: { label: string; items: { to: string; label: string; icon: typeof Activity }[] }[] = [
-  { label: "Demo", items: [{ to: "/demo-console", label: "Demo Console", icon: Sparkles }] },
   {
     label: "Analytics",
     items: [
