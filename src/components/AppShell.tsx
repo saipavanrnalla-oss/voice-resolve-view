@@ -10,7 +10,6 @@ import {
   MonitorCog,
   PhoneCall,
   ShieldCheck,
-  Sparkles,
   UserRound,
   Waypoints,
 } from "lucide-react";

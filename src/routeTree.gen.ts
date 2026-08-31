@@ -13,7 +13,6 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as ChannelObservabilityRouteImport } from './routes/channel-observability'
 import { Route as Claimant360RouteImport } from './routes/claimant-360'
 import { Route as ComplianceRouteImport } from './routes/compliance'
-import { Route as DemoConsoleRouteImport } from './routes/demo-console'
 import { Route as NextStepAnalyticsRouteImport } from './routes/next-step-analytics'
 import { Route as RejectionAnalyticsRouteImport } from './routes/rejection-analytics'
 import { Route as SentimentAnalyticsRouteImport } from './routes/sentiment-analytics'
@@ -39,11 +38,6 @@ const Claimant360Route = Claimant360RouteImport.update({
 const ComplianceRoute = ComplianceRouteImport.update({
   id: '/compliance',
   path: '/compliance',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DemoConsoleRoute = DemoConsoleRouteImport.update({
-  id: '/demo-console',
-  path: '/demo-console',
   getParentRoute: () => rootRouteImport,
 } as any)
 const NextStepAnalyticsRoute = NextStepAnalyticsRouteImport.update({
@@ -82,7 +76,6 @@ export interface FileRoutesByFullPath {
   '/channel-observability': typeof ChannelObservabilityRoute
   '/claimant-360': typeof Claimant360Route
   '/compliance': typeof ComplianceRoute
-  '/demo-console': typeof DemoConsoleRoute
   '/next-step-analytics': typeof NextStepAnalyticsRoute
   '/rejection-analytics': typeof RejectionAnalyticsRoute
   '/sentiment-analytics': typeof SentimentAnalyticsRoute
@@ -95,7 +88,6 @@ export interface FileRoutesByTo {
   '/channel-observability': typeof ChannelObservabilityRoute
   '/claimant-360': typeof Claimant360Route
   '/compliance': typeof ComplianceRoute
-  '/demo-console': typeof DemoConsoleRoute
   '/next-step-analytics': typeof NextStepAnalyticsRoute
   '/rejection-analytics': typeof RejectionAnalyticsRoute
   '/sentiment-analytics': typeof SentimentAnalyticsRoute
@@ -109,7 +101,6 @@ export interface FileRoutesById {
   '/channel-observability': typeof ChannelObservabilityRoute
   '/claimant-360': typeof Claimant360Route
   '/compliance': typeof ComplianceRoute
-  '/demo-console': typeof DemoConsoleRoute
   '/next-step-analytics': typeof NextStepAnalyticsRoute
   '/rejection-analytics': typeof RejectionAnalyticsRoute
   '/sentiment-analytics': typeof SentimentAnalyticsRoute
@@ -124,7 +115,6 @@ export interface FileRouteTypes {
     | '/channel-observability'
     | '/claimant-360'
     | '/compliance'
-    | '/demo-console'
     | '/next-step-analytics'
     | '/rejection-analytics'
     | '/sentiment-analytics'
@@ -137,7 +127,6 @@ export interface FileRouteTypes {
     | '/channel-observability'
     | '/claimant-360'
     | '/compliance'
-    | '/demo-console'
     | '/next-step-analytics'
     | '/rejection-analytics'
     | '/sentiment-analytics'
@@ -150,7 +139,6 @@ export interface FileRouteTypes {
     | '/channel-observability'
     | '/claimant-360'
     | '/compliance'
-    | '/demo-console'
     | '/next-step-analytics'
     | '/rejection-analytics'
     | '/sentiment-analytics'
@@ -164,7 +152,6 @@ export interface RootRouteChildren {
   ChannelObservabilityRoute: typeof ChannelObservabilityRoute
   Claimant360Route: typeof Claimant360Route
   ComplianceRoute: typeof ComplianceRoute
-  DemoConsoleRoute: typeof DemoConsoleRoute
   NextStepAnalyticsRoute: typeof NextStepAnalyticsRoute
   RejectionAnalyticsRoute: typeof RejectionAnalyticsRoute
   SentimentAnalyticsRoute: typeof SentimentAnalyticsRoute
@@ -201,13 +188,6 @@ declare module '@tanstack/react-router' {
       path: '/compliance'
       fullPath: '/compliance'
       preLoaderRoute: typeof ComplianceRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/demo-console': {
-      id: '/demo-console'
-      path: '/demo-console'
-      fullPath: '/demo-console'
-      preLoaderRoute: typeof DemoConsoleRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/next-step-analytics': {
@@ -260,7 +240,6 @@ const rootRouteChildren: RootRouteChildren = {
   ChannelObservabilityRoute: ChannelObservabilityRoute,
   Claimant360Route: Claimant360Route,
   ComplianceRoute: ComplianceRoute,
-  DemoConsoleRoute: DemoConsoleRoute,
   NextStepAnalyticsRoute: NextStepAnalyticsRoute,
   RejectionAnalyticsRoute: RejectionAnalyticsRoute,
   SentimentAnalyticsRoute: SentimentAnalyticsRoute,
