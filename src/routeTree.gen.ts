@@ -10,33 +10,167 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ChannelObservabilityRouteImport } from './routes/channel-observability'
+import { Route as Claimant360RouteImport } from './routes/claimant-360'
+import { Route as ComplianceRouteImport } from './routes/compliance'
+import { Route as DemoConsoleRouteImport } from './routes/demo-console'
+import { Route as NextStepAnalyticsRouteImport } from './routes/next-step-analytics'
+import { Route as RejectionAnalyticsRouteImport } from './routes/rejection-analytics'
+import { Route as SentimentAnalyticsRouteImport } from './routes/sentiment-analytics'
+import { Route as WorkflowObservabilityRouteImport } from './routes/workflow-observability'
+import { Route as CallsIndexRouteImport } from './routes/calls/index'
+import { Route as CallsClaimIdRouteImport } from './routes/calls/$claimId'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ChannelObservabilityRoute = ChannelObservabilityRouteImport.update({
+  id: '/channel-observability',
+  path: '/channel-observability',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const Claimant360Route = Claimant360RouteImport.update({
+  id: '/claimant-360',
+  path: '/claimant-360',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ComplianceRoute = ComplianceRouteImport.update({
+  id: '/compliance',
+  path: '/compliance',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DemoConsoleRoute = DemoConsoleRouteImport.update({
+  id: '/demo-console',
+  path: '/demo-console',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NextStepAnalyticsRoute = NextStepAnalyticsRouteImport.update({
+  id: '/next-step-analytics',
+  path: '/next-step-analytics',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RejectionAnalyticsRoute = RejectionAnalyticsRouteImport.update({
+  id: '/rejection-analytics',
+  path: '/rejection-analytics',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SentimentAnalyticsRoute = SentimentAnalyticsRouteImport.update({
+  id: '/sentiment-analytics',
+  path: '/sentiment-analytics',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WorkflowObservabilityRoute = WorkflowObservabilityRouteImport.update({
+  id: '/workflow-observability',
+  path: '/workflow-observability',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CallsIndexRoute = CallsIndexRouteImport.update({
+  id: '/calls/',
+  path: '/calls/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CallsClaimIdRoute = CallsClaimIdRouteImport.update({
+  id: '/calls/$claimId',
+  path: '/calls/$claimId',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/channel-observability': typeof ChannelObservabilityRoute
+  '/claimant-360': typeof Claimant360Route
+  '/compliance': typeof ComplianceRoute
+  '/demo-console': typeof DemoConsoleRoute
+  '/next-step-analytics': typeof NextStepAnalyticsRoute
+  '/rejection-analytics': typeof RejectionAnalyticsRoute
+  '/sentiment-analytics': typeof SentimentAnalyticsRoute
+  '/workflow-observability': typeof WorkflowObservabilityRoute
+  '/calls/$claimId': typeof CallsClaimIdRoute
+  '/calls/': typeof CallsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/channel-observability': typeof ChannelObservabilityRoute
+  '/claimant-360': typeof Claimant360Route
+  '/compliance': typeof ComplianceRoute
+  '/demo-console': typeof DemoConsoleRoute
+  '/next-step-analytics': typeof NextStepAnalyticsRoute
+  '/rejection-analytics': typeof RejectionAnalyticsRoute
+  '/sentiment-analytics': typeof SentimentAnalyticsRoute
+  '/workflow-observability': typeof WorkflowObservabilityRoute
+  '/calls/$claimId': typeof CallsClaimIdRoute
+  '/calls': typeof CallsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/channel-observability': typeof ChannelObservabilityRoute
+  '/claimant-360': typeof Claimant360Route
+  '/compliance': typeof ComplianceRoute
+  '/demo-console': typeof DemoConsoleRoute
+  '/next-step-analytics': typeof NextStepAnalyticsRoute
+  '/rejection-analytics': typeof RejectionAnalyticsRoute
+  '/sentiment-analytics': typeof SentimentAnalyticsRoute
+  '/workflow-observability': typeof WorkflowObservabilityRoute
+  '/calls/$claimId': typeof CallsClaimIdRoute
+  '/calls/': typeof CallsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/channel-observability'
+    | '/claimant-360'
+    | '/compliance'
+    | '/demo-console'
+    | '/next-step-analytics'
+    | '/rejection-analytics'
+    | '/sentiment-analytics'
+    | '/workflow-observability'
+    | '/calls/$claimId'
+    | '/calls/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/channel-observability'
+    | '/claimant-360'
+    | '/compliance'
+    | '/demo-console'
+    | '/next-step-analytics'
+    | '/rejection-analytics'
+    | '/sentiment-analytics'
+    | '/workflow-observability'
+    | '/calls/$claimId'
+    | '/calls'
+  id:
+    | '__root__'
+    | '/'
+    | '/channel-observability'
+    | '/claimant-360'
+    | '/compliance'
+    | '/demo-console'
+    | '/next-step-analytics'
+    | '/rejection-analytics'
+    | '/sentiment-analytics'
+    | '/workflow-observability'
+    | '/calls/$claimId'
+    | '/calls/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ChannelObservabilityRoute: typeof ChannelObservabilityRoute
+  Claimant360Route: typeof Claimant360Route
+  ComplianceRoute: typeof ComplianceRoute
+  DemoConsoleRoute: typeof DemoConsoleRoute
+  NextStepAnalyticsRoute: typeof NextStepAnalyticsRoute
+  RejectionAnalyticsRoute: typeof RejectionAnalyticsRoute
+  SentimentAnalyticsRoute: typeof SentimentAnalyticsRoute
+  WorkflowObservabilityRoute: typeof WorkflowObservabilityRoute
+  CallsClaimIdRoute: typeof CallsClaimIdRoute
+  CallsIndexRoute: typeof CallsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +182,91 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/channel-observability': {
+      id: '/channel-observability'
+      path: '/channel-observability'
+      fullPath: '/channel-observability'
+      preLoaderRoute: typeof ChannelObservabilityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/claimant-360': {
+      id: '/claimant-360'
+      path: '/claimant-360'
+      fullPath: '/claimant-360'
+      preLoaderRoute: typeof Claimant360RouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/compliance': {
+      id: '/compliance'
+      path: '/compliance'
+      fullPath: '/compliance'
+      preLoaderRoute: typeof ComplianceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/demo-console': {
+      id: '/demo-console'
+      path: '/demo-console'
+      fullPath: '/demo-console'
+      preLoaderRoute: typeof DemoConsoleRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/next-step-analytics': {
+      id: '/next-step-analytics'
+      path: '/next-step-analytics'
+      fullPath: '/next-step-analytics'
+      preLoaderRoute: typeof NextStepAnalyticsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/rejection-analytics': {
+      id: '/rejection-analytics'
+      path: '/rejection-analytics'
+      fullPath: '/rejection-analytics'
+      preLoaderRoute: typeof RejectionAnalyticsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sentiment-analytics': {
+      id: '/sentiment-analytics'
+      path: '/sentiment-analytics'
+      fullPath: '/sentiment-analytics'
+      preLoaderRoute: typeof SentimentAnalyticsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/workflow-observability': {
+      id: '/workflow-observability'
+      path: '/workflow-observability'
+      fullPath: '/workflow-observability'
+      preLoaderRoute: typeof WorkflowObservabilityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/calls/': {
+      id: '/calls/'
+      path: '/calls'
+      fullPath: '/calls/'
+      preLoaderRoute: typeof CallsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/calls/$claimId': {
+      id: '/calls/$claimId'
+      path: '/calls/$claimId'
+      fullPath: '/calls/$claimId'
+      preLoaderRoute: typeof CallsClaimIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ChannelObservabilityRoute: ChannelObservabilityRoute,
+  Claimant360Route: Claimant360Route,
+  ComplianceRoute: ComplianceRoute,
+  DemoConsoleRoute: DemoConsoleRoute,
+  NextStepAnalyticsRoute: NextStepAnalyticsRoute,
+  RejectionAnalyticsRoute: RejectionAnalyticsRoute,
+  SentimentAnalyticsRoute: SentimentAnalyticsRoute,
+  WorkflowObservabilityRoute: WorkflowObservabilityRoute,
+  CallsClaimIdRoute: CallsClaimIdRoute,
+  CallsIndexRoute: CallsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
