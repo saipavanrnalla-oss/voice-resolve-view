@@ -10,33 +10,115 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as DemoConsoleRouteImport } from './routes/demo-console'
+import { Route as NextStepAnalyticsRouteImport } from './routes/next-step-analytics'
+import { Route as RejectionAnalyticsRouteImport } from './routes/rejection-analytics'
+import { Route as SentimentAnalyticsRouteImport } from './routes/sentiment-analytics'
+import { Route as CallsIndexRouteImport } from './routes/calls/index'
+import { Route as CallsClaimIdRouteImport } from './routes/calls/$claimId'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DemoConsoleRoute = DemoConsoleRouteImport.update({
+  id: '/demo-console',
+  path: '/demo-console',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NextStepAnalyticsRoute = NextStepAnalyticsRouteImport.update({
+  id: '/next-step-analytics',
+  path: '/next-step-analytics',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RejectionAnalyticsRoute = RejectionAnalyticsRouteImport.update({
+  id: '/rejection-analytics',
+  path: '/rejection-analytics',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SentimentAnalyticsRoute = SentimentAnalyticsRouteImport.update({
+  id: '/sentiment-analytics',
+  path: '/sentiment-analytics',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CallsIndexRoute = CallsIndexRouteImport.update({
+  id: '/calls/',
+  path: '/calls/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CallsClaimIdRoute = CallsClaimIdRouteImport.update({
+  id: '/calls/$claimId',
+  path: '/calls/$claimId',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/demo-console': typeof DemoConsoleRoute
+  '/next-step-analytics': typeof NextStepAnalyticsRoute
+  '/rejection-analytics': typeof RejectionAnalyticsRoute
+  '/sentiment-analytics': typeof SentimentAnalyticsRoute
+  '/calls/$claimId': typeof CallsClaimIdRoute
+  '/calls/': typeof CallsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/demo-console': typeof DemoConsoleRoute
+  '/next-step-analytics': typeof NextStepAnalyticsRoute
+  '/rejection-analytics': typeof RejectionAnalyticsRoute
+  '/sentiment-analytics': typeof SentimentAnalyticsRoute
+  '/calls/$claimId': typeof CallsClaimIdRoute
+  '/calls': typeof CallsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/demo-console': typeof DemoConsoleRoute
+  '/next-step-analytics': typeof NextStepAnalyticsRoute
+  '/rejection-analytics': typeof RejectionAnalyticsRoute
+  '/sentiment-analytics': typeof SentimentAnalyticsRoute
+  '/calls/$claimId': typeof CallsClaimIdRoute
+  '/calls/': typeof CallsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/demo-console'
+    | '/next-step-analytics'
+    | '/rejection-analytics'
+    | '/sentiment-analytics'
+    | '/calls/$claimId'
+    | '/calls/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/demo-console'
+    | '/next-step-analytics'
+    | '/rejection-analytics'
+    | '/sentiment-analytics'
+    | '/calls/$claimId'
+    | '/calls'
+  id:
+    | '__root__'
+    | '/'
+    | '/demo-console'
+    | '/next-step-analytics'
+    | '/rejection-analytics'
+    | '/sentiment-analytics'
+    | '/calls/$claimId'
+    | '/calls/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  DemoConsoleRoute: typeof DemoConsoleRoute
+  NextStepAnalyticsRoute: typeof NextStepAnalyticsRoute
+  RejectionAnalyticsRoute: typeof RejectionAnalyticsRoute
+  SentimentAnalyticsRoute: typeof SentimentAnalyticsRoute
+  CallsClaimIdRoute: typeof CallsClaimIdRoute
+  CallsIndexRoute: typeof CallsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +130,59 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/demo-console': {
+      id: '/demo-console'
+      path: '/demo-console'
+      fullPath: '/demo-console'
+      preLoaderRoute: typeof DemoConsoleRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/next-step-analytics': {
+      id: '/next-step-analytics'
+      path: '/next-step-analytics'
+      fullPath: '/next-step-analytics'
+      preLoaderRoute: typeof NextStepAnalyticsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/rejection-analytics': {
+      id: '/rejection-analytics'
+      path: '/rejection-analytics'
+      fullPath: '/rejection-analytics'
+      preLoaderRoute: typeof RejectionAnalyticsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sentiment-analytics': {
+      id: '/sentiment-analytics'
+      path: '/sentiment-analytics'
+      fullPath: '/sentiment-analytics'
+      preLoaderRoute: typeof SentimentAnalyticsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/calls/': {
+      id: '/calls/'
+      path: '/calls'
+      fullPath: '/calls/'
+      preLoaderRoute: typeof CallsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/calls/$claimId': {
+      id: '/calls/$claimId'
+      path: '/calls/$claimId'
+      fullPath: '/calls/$claimId'
+      preLoaderRoute: typeof CallsClaimIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  DemoConsoleRoute: DemoConsoleRoute,
+  NextStepAnalyticsRoute: NextStepAnalyticsRoute,
+  RejectionAnalyticsRoute: RejectionAnalyticsRoute,
+  SentimentAnalyticsRoute: SentimentAnalyticsRoute,
+  CallsClaimIdRoute: CallsClaimIdRoute,
+  CallsIndexRoute: CallsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
