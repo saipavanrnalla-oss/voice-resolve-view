@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ChannelObservabilityRouteImport } from './routes/channel-observability'
+import { Route as Claimant360RouteImport } from './routes/claimant-360'
 import { Route as ComplianceRouteImport } from './routes/compliance'
 import { Route as DemoConsoleRouteImport } from './routes/demo-console'
 import { Route as NextStepAnalyticsRouteImport } from './routes/next-step-analytics'
@@ -28,6 +29,11 @@ const IndexRoute = IndexRouteImport.update({
 const ChannelObservabilityRoute = ChannelObservabilityRouteImport.update({
   id: '/channel-observability',
   path: '/channel-observability',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const Claimant360Route = Claimant360RouteImport.update({
+  id: '/claimant-360',
+  path: '/claimant-360',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ComplianceRoute = ComplianceRouteImport.update({
@@ -74,6 +80,7 @@ const CallsClaimIdRoute = CallsClaimIdRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/channel-observability': typeof ChannelObservabilityRoute
+  '/claimant-360': typeof Claimant360Route
   '/compliance': typeof ComplianceRoute
   '/demo-console': typeof DemoConsoleRoute
   '/next-step-analytics': typeof NextStepAnalyticsRoute
@@ -86,6 +93,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/channel-observability': typeof ChannelObservabilityRoute
+  '/claimant-360': typeof Claimant360Route
   '/compliance': typeof ComplianceRoute
   '/demo-console': typeof DemoConsoleRoute
   '/next-step-analytics': typeof NextStepAnalyticsRoute
@@ -99,6 +107,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/channel-observability': typeof ChannelObservabilityRoute
+  '/claimant-360': typeof Claimant360Route
   '/compliance': typeof ComplianceRoute
   '/demo-console': typeof DemoConsoleRoute
   '/next-step-analytics': typeof NextStepAnalyticsRoute
@@ -113,6 +122,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/channel-observability'
+    | '/claimant-360'
     | '/compliance'
     | '/demo-console'
     | '/next-step-analytics'
@@ -125,6 +135,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/channel-observability'
+    | '/claimant-360'
     | '/compliance'
     | '/demo-console'
     | '/next-step-analytics'
@@ -137,6 +148,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/channel-observability'
+    | '/claimant-360'
     | '/compliance'
     | '/demo-console'
     | '/next-step-analytics'
@@ -150,6 +162,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ChannelObservabilityRoute: typeof ChannelObservabilityRoute
+  Claimant360Route: typeof Claimant360Route
   ComplianceRoute: typeof ComplianceRoute
   DemoConsoleRoute: typeof DemoConsoleRoute
   NextStepAnalyticsRoute: typeof NextStepAnalyticsRoute
@@ -174,6 +187,13 @@ declare module '@tanstack/react-router' {
       path: '/channel-observability'
       fullPath: '/channel-observability'
       preLoaderRoute: typeof ChannelObservabilityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/claimant-360': {
+      id: '/claimant-360'
+      path: '/claimant-360'
+      fullPath: '/claimant-360'
+      preLoaderRoute: typeof Claimant360RouteImport
       parentRoute: typeof rootRouteImport
     }
     '/compliance': {
@@ -238,6 +258,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ChannelObservabilityRoute: ChannelObservabilityRoute,
+  Claimant360Route: Claimant360Route,
   ComplianceRoute: ComplianceRoute,
   DemoConsoleRoute: DemoConsoleRoute,
   NextStepAnalyticsRoute: NextStepAnalyticsRoute,
