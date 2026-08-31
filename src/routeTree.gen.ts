@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ChannelObservabilityRouteImport } from './routes/channel-observability'
 import { Route as DemoConsoleRouteImport } from './routes/demo-console'
 import { Route as NextStepAnalyticsRouteImport } from './routes/next-step-analytics'
 import { Route as RejectionAnalyticsRouteImport } from './routes/rejection-analytics'
@@ -21,6 +22,11 @@ import { Route as CallsClaimIdRouteImport } from './routes/calls/$claimId'
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ChannelObservabilityRoute = ChannelObservabilityRouteImport.update({
+  id: '/channel-observability',
+  path: '/channel-observability',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DemoConsoleRoute = DemoConsoleRouteImport.update({
@@ -61,6 +67,7 @@ const CallsClaimIdRoute = CallsClaimIdRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/channel-observability': typeof ChannelObservabilityRoute
   '/demo-console': typeof DemoConsoleRoute
   '/next-step-analytics': typeof NextStepAnalyticsRoute
   '/rejection-analytics': typeof RejectionAnalyticsRoute
@@ -71,6 +78,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/channel-observability': typeof ChannelObservabilityRoute
   '/demo-console': typeof DemoConsoleRoute
   '/next-step-analytics': typeof NextStepAnalyticsRoute
   '/rejection-analytics': typeof RejectionAnalyticsRoute
@@ -82,6 +90,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/channel-observability': typeof ChannelObservabilityRoute
   '/demo-console': typeof DemoConsoleRoute
   '/next-step-analytics': typeof NextStepAnalyticsRoute
   '/rejection-analytics': typeof RejectionAnalyticsRoute
@@ -94,6 +103,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/channel-observability'
     | '/demo-console'
     | '/next-step-analytics'
     | '/rejection-analytics'
@@ -104,6 +114,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/channel-observability'
     | '/demo-console'
     | '/next-step-analytics'
     | '/rejection-analytics'
@@ -114,6 +125,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/channel-observability'
     | '/demo-console'
     | '/next-step-analytics'
     | '/rejection-analytics'
@@ -125,6 +137,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ChannelObservabilityRoute: typeof ChannelObservabilityRoute
   DemoConsoleRoute: typeof DemoConsoleRoute
   NextStepAnalyticsRoute: typeof NextStepAnalyticsRoute
   RejectionAnalyticsRoute: typeof RejectionAnalyticsRoute
@@ -141,6 +154,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/channel-observability': {
+      id: '/channel-observability'
+      path: '/channel-observability'
+      fullPath: '/channel-observability'
+      preLoaderRoute: typeof ChannelObservabilityRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/demo-console': {
@@ -197,6 +217,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ChannelObservabilityRoute: ChannelObservabilityRoute,
   DemoConsoleRoute: DemoConsoleRoute,
   NextStepAnalyticsRoute: NextStepAnalyticsRoute,
   RejectionAnalyticsRoute: RejectionAnalyticsRoute,
