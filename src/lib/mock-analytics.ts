@@ -12,7 +12,7 @@ export const CATEGORY_MIX: { category: string; short: string; pct: number; volum
   ["Fraud Investigation Pending", 1],
 ].map(([category, pct]) => ({
   category: category as string,
-  short: CATEGORY_SHORT[category as string],
+  short: CATEGORY_SHORT[category as string] as string,
   pct: pct as number,
   volume: Math.round(((pct as number) / 100) * 18420),
 }));
@@ -20,12 +20,21 @@ export const CATEGORY_MIX: { category: string; short: string; pct: number; volum
 export const CATEGORY_STATS = REJECTION_CATEGORIES.map((category, i) => {
   const mix = CATEGORY_MIX.find((m) => m.category === category);
   const volume = mix?.volume ?? 210;
-  const comprehension = [88, 71, 84, 90, 92, 86, 89, 87, 64, 79][i];
-  const distressRate = [46, 74, 58, 41, 27, 52, 38, 44, 81, 61][i];
-  const appealRate = [34, 41, 29, 12, 48, 57, 9, 62, 18, 44][i];
-  const grievanceRate = [9, 27, 14, 4, 3, 8, 2, 6, 31, 16][i];
-  const avgValue = [96000, 214000, 128000, 174000, 41000, 73000, 58000, 187000, 305000, 142000][i];
-  return { category, short: CATEGORY_SHORT[category], volume, comprehension, distressRate, appealRate, grievanceRate, avgValue };
+  const comprehension = [88, 71, 84, 90, 92, 86, 89, 87, 64, 79][i] as number;
+  const distressRate = [46, 74, 58, 41, 27, 52, 38, 44, 81, 61][i] as number;
+  const appealRate = [34, 41, 29, 12, 48, 57, 9, 62, 18, 44][i] as number;
+  const grievanceRate = [9, 27, 14, 4, 3, 8, 2, 6, 31, 16][i] as number;
+  const avgValue = [96000, 214000, 128000, 174000, 41000, 73000, 58000, 187000, 305000, 142000][i] as number;
+  return {
+    category: category as string,
+    short: CATEGORY_SHORT[category] as string,
+    volume,
+    comprehension,
+    distressRate,
+    appealRate,
+    grievanceRate,
+    avgValue,
+  };
 });
 
 export const TERMINAL_TREND = Array.from({ length: 12 }, (_, i) => {
